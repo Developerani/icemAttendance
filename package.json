@@ -1,0 +1,25 @@
+{
+  "name": "erp_data",
+  "version": "1.0.0",
+  "description": "Attendence System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "Aniket Giram",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "js-alert": "^1.0.4",
+    "localStorage": "^1.0.4",
+    "mongodb": "^2.2.36",
+    "mongoose": "^5.4.14",
+    "promise": "^8.0.2",
+    "random-number": "0.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

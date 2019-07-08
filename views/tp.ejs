@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Attendence</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
+  <style>.pt-3-half {
+        padding-top: 1.4rem;
+    }</style>
+</head>
+
+<body>
+  <div class="container">
+    <br><br><br>
+    <div class="row">
+      <div class="col-6">
+        <p><h2>Present</h2></p>
+        <table class="table table-bordered">
+          <thead>
+
+            <tr>
+              <th scope="col"><b>Roll No</b></th>
+              <th scope="col"><b>Status</b></th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+            <% present.forEach(function(data){ %>
+
+            <tr>
+
+              <th>
+                <%=data%>
+              </th>
+              <td><button type="button" class="btn  btn-sm" style="background-color:#32CD32" value="Present" id="<%=data%>"
+                  value="Present" onclick="change(id)">Present</button></td>
+            </tr>
+
+            <% }); %>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="col-6">
+          <p><h2>Absent</h2></p>
+        <table class="table table-bordered">
+          <thead>
+
+            <tr>
+              <th scope="col"><b>Roll No</b></th>
+              <th scope="col"><b>Status</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% absent.forEach(function(data){ %>
+            <tr>
+
+              <th>
+                <%=data%>
+              </th>
+              <td><button type="button" class="btn  btn-sm" style="background-color: #ff3300" value="Absent" id="<%=data%>"
+                  value="Absent" onclick="change(id)">Absent</button></td>
+            </tr>
+
+            <% }); %>
+
+
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  
+    <button type="button" onclick="submit()" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#basicExampleModal">Submit</button>
+    
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attendence</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="/stud_info">
+            <h3 class="h3-responsive">Do you Want to Continue</h3>
+              <input type="text" id="final" name="final" style="display:none;"><br>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+          </form>
+        </div>
+        
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+     function submit() {
+      var stat = [];
+      var c="";
+      var d ="";
+      var e = "";
+
+      var a = '<%=present%>';
+      var b = "<%=absent%>";
+      // console.log("abc"+a+"abc");
+      var x;
+      if(a != "")
+      {
+        d = a.split(",");
+        
+       
+      }
+      else{
+       console.log("a is null")
+      }
+      if(b != "")
+      {
+         e = b.split(",");
+      
+      }
+      else{
+        console.log("b is null")
+      }
+    
+      
+      // console.log("d"+d.length)
+      // console.log("e "+e.length)
+      // if(a!=null)
+      if(d !="")
+      {
+       
+      
+        if(c == "")
+        {
+          console.log("c is null")
+          c = d;
+          console.log(c)
+        }
+        else{
+          console.log("c is not null")
+          c = c  +d;
+        }
+      
+      }
+      if(e != "")
+      {
+        if(c == "")
+        {
+          console.log("c is null")
+          c = e;
+        }
+        else{
+          console.log("c is not null")
+          c = c+","+e;
+        }
+      }
+      
+      // if(b!=null)
+    if(c.length>1)
+    {
+      c = c.split(",")
+    }
+      
+      console.log(c)
+      for (var i = 0; i < c.length; i++) {
+        
+          // console.log(c[i])
+          if(c[i] != "")
+          {
+            console.log(i,c[i])
+            stat.push(c[i] + ":" + document.getElementById(c[i]).value);
+          }
+         
+     
+       
+      }
+      console.log(stat)
+      document.getElementById("final").value = stat
+     }
+
+    function change(id) {
+
+      if (document.getElementById(id).innerHTML[0] == "P") {
+        document.getElementById(id).innerHTML = "Absent";
+        document.getElementById(id).value = "Absent";
+        document.getElementById(id).style = "background-color: #ff3300";
+        console.log(document.getElementById(id).value)
+      }
+      else if (document.getElementById(id).innerHTML[0] == "A") {
+        document.getElementById(id).innerHTML = "Present";
+        document.getElementById(id).value = "Present";
+        document.getElementById(id).style = "background-color:#32CD32";
+        console.log(document.getElementById(id).value)
+      }
+    }
+    
+
+  </script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+  <!-- <script>
+  $("#btn_id").click(function(){
+    $.redirect('oka',
+        {
+            user_name: "khan",
+            city : "Meerut",
+            country : "country"
+        });
+    });
+
+  </script> -->
+</body>
+
+</html>

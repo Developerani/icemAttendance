@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Attendence</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
+    <style type="text/css">
+      [type='radio'] {
+display: none;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+    <div class="container">
+        <nav class="navbar fixed-top navbar-expand-md navbar-light white double-nav scrolling-navbar" style="">
+
+  <!-- Navbar links-->
+  <div class="mr-auto">
+    <span class="d-none d-md-inline-block">
+              <a class="btn btn-info btn-sm my-0 ml-3 waves-effect waves-light" role="button">
+          <span class="d-none d-lg-inline-block mr-1">Indira College of Engineering and Management</span>
+        </a>
+            <!-- Dynamic content wrapper -->
+      <span id="dynamicContentWrapper-mainNavbar2"></span>
+    </span>
+  </div>
+
+    <!--Navigation icons-->
+    <ul class="nav navbar-nav nav-flex-icons ml-auto">
+
+
+      <!-- Login / register -->
+              <a class="btn btn-info btn-rounded btn-sm waves-effect waves-light" href="logout">Log Out
+          <i class="fa fa-sign-in ml-2"></i>
+        </a>    `
+          </ul>
+</nav>
+     <br><br><br><br><br>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Material form subscription -->
+                        <form method="POST" action="/data">
+                              <p class="h4 text-center blue-text mb-4">Fill Information</p>
+
+                              <p>Select Department</p>
+                              <!--Checkbox butons-->
+                              <div class="btn-group" data-toggle="buttons">
+
+                                  <label class="btn btn-default">
+                                      <input class="form-check-input" type="radio" name="dept" id="deptFE" onclick="myFunction(this.value)" value="FE" >FE
+                                  </label>
+
+                                  <label class="btn btn-default">
+                                      <input class="form-check-input" type="radio" name="dept" id="Computer" value="Computer" >Computer
+                                  </label>
+
+                                  <label class="btn btn-default">
+                                      <input class="form-check-input" type="radio" name="dept" id="Mechnical" value="Mechnical">Mechnical
+                                  </label>
+
+
+                                  <label class="btn btn-default">
+                                      <input class="form-check-input" type="radio" name="dept" id="E&TC" value="E&TC">E&TC
+                                  </label>
+
+
+                                  <label class="btn btn-default">
+                                      <input class="form-check-input" type="radio" name="dept" id="Civil" value="Civil">Civil
+                                  </label>
+                              </div>
+                              <br><br>
+                              <!--Checkbox butons-->
+                              <p>Select Class</p>
+                              <!--Checkbox butons-->
+                              <div class="btn-group" data-toggle="buttons" id="class">
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="classs" id="FE" value="FE">FE
+                                  </label>
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="classs" id="SE" value="SE">SE
+                                  </label>
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="classs" id="TE" value="TE">TE
+                                  </label>
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="classs" id="BE" value="BE">BE
+                                  </label>
+                              </div>
+                              <br><br>
+                              <!--Checkbox butons-->
+                              <p>Select DIV</p>
+                              <!--Checkbox butons-->
+                              <div class="btn-group" data-toggle="buttons" id="division">
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="Div" id="Div-1" value="Div-1">Div-1
+                                  </label>
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="Div" id="Div-2" value="Div-2">Div-2
+                                  </label>
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="Div" id="Div-3" value="Div-3">Div-3
+                                  </label>
+
+
+                                  <label class="btn btn-default form-check-label">
+                                      <input class="form-check-input" type="radio" name="Div" id="Div-4" value="Div-4">Div-4
+                                  </label>
+
+                              </div>
+                              <!--Checkbox butons-->
+                              <br><br>
+                            <!-- Material input email -->
+                              <div class="md-form">
+                                  <input type="text" id="lect" name="lect" class="form-control">
+                                  <label for="lect">Lecture</label>
+                               </div>
+
+                              <div class="text-center mt-4">
+                                  <input type="submit" class="btn btn-outline-info" name="ok" value="Generate QR">
+                                  
+                              </div>
+                        </form>
+                        <!-- Material form subscription -->
+                    </div>
+                </div>
+            </div>
+            <div class="col"><p id = "demo"></p></div>
+        </div>
+    </div>
+    <!-- /Start your project here-->
+  
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <!-- JQuery -->
+	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+</body>
+<script>
+//     function myFunction(browser) {
+//     document.getElementById("demo").innerHTML = browser;
+// 	console.log(browser);
+// 	alert("high");
+// } 
+	 
+	// function generate_word(){
+	// <!--var depart = document.getElementById("department");-->
+    //  var word = "aniketgiram"; //combination of selected buttons
+	//  localStorage.setItem('qrinfo',word);
+	//  console.log("success");
+	// document.getElementById("demo").innerHTML = word;
+	// window.location.href = "https://stackoverflow.com/questions/36599781/how-to-pass-data-from-one-page-to-another-page-html";
+	// return;
+	// }
+	// </script>
+
+</html>
